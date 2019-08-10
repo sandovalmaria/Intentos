@@ -3,8 +3,7 @@ function mostrar()
 	var localidad;
 	var localidadMinima;
 	var temperatura;
-	var temperaturaMinima = 0;
-	var temperaturaMaxima = 0;
+	var temperaturaM40 = 0;
 	var temperaturaCero = 0;
 	var temperaturasPares = 0;
 	var habitantes;
@@ -18,30 +17,29 @@ function mostrar()
 	do
 	{
 		localidad = prompt(" Ingrese localidad");
-		temperatura = parseInt(prompt("Ingrese temperatura"));
-		habitantes = parseInt(prompt("ingrese cantidad de habitantes"));
 		
-		while(habitantes <1 && habitantes > 40)
+		temperatura = parseInt(prompt("Ingrese temperatura"));
+		while(isNaN(temperatura) ||habitantes < 1 || habitantes > 40 )
 		{
 			alert = prompt("Ese no es un numero valido");
 			habitantes = parseInt(prompt("Reingrese cantidad de habitantes"));
 		}
 		
-		while(temperatura < 0 && temperatura > 50)
+		habitantes = parseInt(prompt("ingrese cantidad de habitantes"));
+		while(isNaN(temperatura) || temperatura < -50 || temperatura > 50)
 		{
-			alert = prompt("Ese no es na temperatura valida");
+			alert = prompt("Ese no es una temperatura valida");
 			temperatura = parseInt(prompt("Reingrese temperatura"));
 		}
 
-		
-		if(temperatura % 2 ==0)
+		if(temperatura % 2 == 0)
 		{
 			temperaturasPares++;
 		}
 		
 		if(temperatura>40)
 		{
-			temperatura++;
+			temperaturaM40++;
 		}
 		
 		if(temperatura<temperaturaCero || flag ==0)
@@ -50,28 +48,27 @@ function mostrar()
 			localidadMinima = localidad;
 		}
 		
-		if(localidad<localidad || flag == 0)
-		
+		if(menosHabitantes>localidad || flag == 0)
 		{
 			menosHabitantes = localidad;
 			flag = 1;
 		}
+
 		promedioHabitantes = promedioHabitantes + habitantes;
 		
 		seguir = prompt("Quiere seguir?");
 
-
-
 	}while(seguir == "s");
 
-	
-	alert("menor temperatura" + temperaturaCero);
-	alert("mayor temperatura" + temperaturaMaxima);
-	alert("Menor cantidad de habitantes minima" + menosHabitantes);
-	alert ("Temperaturas pares" + temperaturasPares);
+	promedioHabitantes = promedioHabitantes / 2;
 
 	
+	document.write("las cantidad de temperaturas pares son " + temperaturasPares + "<br>");
+	document.write("El nombre de la localidad con menos habitantes " + menosHabitantes + "<br>");
+	document.write("La cantidad localidades que superan los 40 grados de temperatura " + temperaturaM40 + "<br>");
+	document.write("El promedio de habitantes entre las localidades ingresadas " + promedioHabitantes + "<br>");
+	document.write("La temperatura mínima ingresada es " + temperaturaCero + "<br>" + "  y nombre de la localidad que registro esa temperatura " + localidadMinima + "<br>");
 
-
+	
 	alert("tres");
 }
