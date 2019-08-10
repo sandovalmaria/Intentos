@@ -15,29 +15,29 @@ function mostrar()
   for(i=0; i<4; i++)
   {
     mascota = prompt("Ingrese la Especie de su mascota: ");
+    edad = parseInt(prompt("Ingrese la edad de la mascota: "));
+    peso = parseInt(prompt("Ingrese peso de la mascota: "));
+    nombre = prompt("Ingrese el Nombre de su mascota: ");
+
+    
     while(mascota != "perro" && mascota != "gato")
     {
       alert("Esa no es una mascota valida ");
       mascota = prompt("Reingrese mascota: ");
-      
+
     }
-    
-    edad = parseInt(prompt("Ingrese la edad de la mascota: "));
     while(edad <=1 && edad >=25 )
     {
       alert("esa no es una edad posible")
       edad = parseInt(prompt("Reingrese la edad de la mascota: "));
-      
+
     }
-    
-    peso = parseInt(prompt("Ingrese peso de la mascota: "));
     while(peso<=0 && peso>=101)
     {
       alert("Ese no es un peso valido")
       peso = parseInt(prompt("Ingrese peso de la mascota: "));
     }
-    
-    nombre = prompt("Ingrese el Nombre de su mascota: ");
+
 
 
     if(peso >1 && peso<100)
@@ -61,9 +61,9 @@ function mostrar()
     
   contadorpeso = contadorpeso / 4;
 
-  document.write("El promedio de los pesos totales " + contadorpeso + "<br>");
-  document.write(" El nombre de la mascota mas vieja es " + nombreMax + "<br>" );
-  document.write("La cantidad animales menores a 10 kilos de mas de 10 años son:" + menos10 + + "<br>");
+  alert("El promedio de los pesos totales " + contadorpeso);
+  alert(" El nombre dela mascota mas vieja es " + nombreMax);
+  alert("La cantidad animales menores a 10 kilos de mas de 10 años son:" + menos10);
 
 
 

@@ -17,7 +17,7 @@ function mostrar()
 		alert(lado1 + lado2 + lado3);
 
 	}
-	if(lado1 ==lado2 && lado2==lado3 && lado1 == lado3)
+	if(lado1 ==lado2 && lado2==lado3)
 	{
 		lado1 = parseInt(lado1);
 		lado2 = parseInt(lado2);
