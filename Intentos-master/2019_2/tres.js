@@ -2,6 +2,8 @@ function mostrar()
 {
 	var localidad;
 	var localidadMinima;
+	var zona;
+	var zonaSur = 0;
 	var temperatura;
 	var temperaturaM40 = 0;
 	var temperaturaCero = 0;
@@ -17,19 +19,25 @@ function mostrar()
 	do
 	{
 		localidad = prompt(" Ingrese localidad");
+		zona = prompt("Ingrese si es de zona norte - sur - este - oeste ")
 		
 		habitantes = parseInt(prompt("ingrese cantidad de habitantes"));
-		while(isNaN(habitantes) ||habitantes <1 || habitantes > 40)
+		while(isNaN(habitantes) || habitantes < 1 || habitantes > 40)
 		{
-			alert = prompt("Ese no es un numero valido");
+			alert("Ese no es un numero valido");
 			habitantes = parseInt(prompt("Reingrese cantidad de habitantes"));
 		}
 		
 		temperatura = parseInt(prompt("Ingrese temperatura"));
-		while(isNaN(temperatura) ||temperatura < -50 || temperatura > 50)
+		while(isNaN(temperatura) || temperatura < -50 || temperatura > 50)
 		{
-			alert = prompt("Ese no es una temperatura valida");
+			alert("Ese no es una temperatura valida");
 			temperatura = parseInt(prompt("Reingrese temperatura"));
+		}
+
+		if(zona =="sur")
+		{
+			zonaSur++;
 		}
 
 		
@@ -55,6 +63,7 @@ function mostrar()
 			menosHabitantes = localidad;
 			flag = 1;
 		}
+
 		promedioHabitantes = promedioHabitantes + habitantes;
 		
 		seguir = prompt("Quiere seguir?");
@@ -63,13 +72,17 @@ function mostrar()
 
 	}while(seguir == "s");
 
+
+
 	promedioHabitantes = promedioHabitantes / 2;
 	
 	document.write("La cantidad de temperaturas pares " + temperaturasPares + "<br>");
-	document.write("El nombre de la localidad con menos habitantes " + localidadMinima + "<br>");
+	document.write("El nombre de la localidad con menos habitantes " + menosHabitantes + "<br>");
 	document.write("La cantidad localidades que superan los 40 grados de temperatura " + temperaturaM40 + "<br>");
-	document.write(" El promedio de habitantes entre las localidades ingresadas " + promedioHabitantes + "<br>");
+	document.write("El promedio de habitantes entre las localidades ingresadas " + promedioHabitantes + "<br>");
 	document.write("La temperatura mínima ingresada es " + temperaturaCero + " y nombre de la localidad que registro esa temperatura " + localidadMinima + "<br>");
+	document.write("la cantidad de lugares con la zona mas calurosa " + zonaSur + "<br>");
+	
 	
 
 	

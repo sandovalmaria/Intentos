@@ -22,7 +22,7 @@ function mostrar()
 		
 		while(isNaN(numero) || numero < -50 || numero > 50)
 		{
-			alert = prompt("Ese no es un numero valido");
+			alert("Ese no es un numero valido");
 			numero = parseInt(prompt("Reingrese un numero entre -100 y 100"));
 		}
 		
